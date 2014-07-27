@@ -6,16 +6,14 @@
 
 
 document.addEventListener("DOMContentLoaded",function (e){
-	var cyclingLink = "<li><a class=\"\" href=\"http://www.bbc.co.uk/sport/0/cycling/\">Cycling</a></li>  ";
-	
+	var cyclingLink = "<li class=\" primary-nav__item   \"> <a href=\"/sport/cycling\" class=\"primary-nav__link\"><span class=\"primary-nav__link-text\">Cycling</span></a> </li>";
+
 	var navbar;
-	if (navbar = document.getElementById("primary-nav-bar")) {
+	if (navbar = document.getElementsByClassName("primary-nav__items")) {
 		if (document.URL.indexOf("bbc.co.uk/sport/0/cycling/") != -1 ) {
 			//Style different if the selected section
-			cyclingLink = cyclingLink.replace("<li>", "<li class=\"selected\">");
+			cyclingLink = cyclingLink.replace(" primary-nav__item   ", " primary-nav__item  primary-nav__item--active  primary-nav__item--full-highlight    ");
 		}
-		navbar.innerHTML = navbar.innerHTML.replace("Home</a></li>  ", "Home</a></li>  " + cyclingLink);
+		navbar[0].innerHTML = navbar[0].innerHTML.replace("Home</span></a> </li>  ", "Home</a></li>  " + cyclingLink);
 	}
 },false);
-
-
